@@ -1,0 +1,33 @@
+.user {
+  width: 20rem;
+  margin-left: 2rem;
+  /* background-color: rgba(28, 30, 34, 0.25); */
+  /* border: 1px solid rgba(28, 30, 34, 0.25); */
+  /* border-radius: 5px; */
+}
+
+.user-image {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.user-image img {
+  width: 100%;
+}
+
+.bio {
+  margin: 1rem 0rem;
+}
+
+.extras p {
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.extras p i {
+  opacity: 0.75;
+  font-weight: 600 !important;
+  width: 0.75rem;
+}
