@@ -1,7 +1,11 @@
-import axios from 'axios'
 import React, { useEffect } from 'react'
 import avatar from './default-avatar.png'
+
+// Stylesheet
 import './User.css'
+
+// External Imports
+import axios from 'axios'
 
 const User = ({
   history,
@@ -10,18 +14,33 @@ const User = ({
   },
   match,
 }) => {
-    console.log(user)
-    console.log(running_total)
+  console.log(user)
+  console.log(running_total)
 
-    useEffect(() => {
-        const fetchUserDetails = async () => {
-            const res = await axios.get(`https://wakatime.com/api/v1/users/@${user.username}`)
-            console.log(res)
-        }
-        fetchUserDetails()
-    }, [])
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      const res = await axios.get(
+        `https://wakatime.com/api/v1/users/${user.username}`,
+        {
+          params: {
+            api_key: 'ae45a3c0-0b0c-46bb-8a01-53144d6a282a',
+          },
+        },
+        // {
+        //   headers: {
+        //     Authorization:
+        //       'Basic ' + btoa('ae45a3c0-0b0c-46bb-8a01-53144d6a282a'),
+        //   },
+        // },
+      )
+      console.log(res)
+    }
+    fetchUserDetails()
+  }, [])
 
   const returnToIndex = () => history.push('/')
+
+  console.log(btoa('ae45a3c0-0b0c-46bb-8a01-53144d6a282a'))
 
   return (
     <div className="container">
@@ -32,22 +51,29 @@ const User = ({
         <p>{user.display_name}</p>
       </header>
       <div className="user-details">
-          <div className="user">
-              <div className="user-image">
-                  <img src={user.photo_public ? user.photo : avatar} alt="" />
-              </div>
-              <div>
-                  <p>{user.display_name}</p>
-                  <p>@{user.username}</p>
-                  <p>Rank: {rank}</p>
-              </div>
-              <div>
-                  <p>{user.is_email_public && user.email}</p>
-                  <p>{user.location}</p>
-                  <p>{user.website}</p>
-              </div>
+        <div className="user">
+          <div className="user-image">
+            <img src={user.photo_public ? user.photo : avatar} alt="" />
           </div>
-          <div className="details"></div>
+          <div>
+            <p>{user.display_name}</p>
+            <p>@{user.username}</p>
+            <p>Rank: {rank}</p>
+          </div>
+          <div>
+            <p>
+              <i class="fas fa-envelope"></i>{' '}
+              {user.is_email_public && user.email}
+            </p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> {user.location}
+            </p>
+            <p>
+              <i class="fas fa-link"></i> {user.website}
+            </p>
+          </div>
+        </div>
+        <div className="details"></div>
       </div>
     </div>
   )

@@ -20,5 +20,8 @@ code {
 ul {
   display: flex;
   justify-content: space-between;
+}
+
+li {
   list-style-type: none;
 }
