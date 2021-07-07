@@ -24,16 +24,16 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(`${URL}`, {
-        // params: { page: pageNumber },
+        params: { page: pageNumber },
         // headers: {
         //   Authorization: `Basic ${btoa(
         //     'ae45a3c0-0b0c-46bb-8a01-53144d6a282a',
         //   )}`,
         // },
-        params: {
-          api_key: 'ae45a3c0-0b0c-46bb-8a01-53144d6a282a',
-          page: pageNumber,
-        },
+        // params: {
+        //   api_key: 'ae45a3c0-0b0c-46bb-8a01-53144d6a282a',
+        //   page: pageNumber,
+        // },
         // auth: {
         //   username: 'api_key',
         //   password: 'ae45a3c0-0b0c-46bb-8a01-53144d6a282a',
@@ -75,8 +75,7 @@ const App = () => {
             {searchStatus && (
               <div className="search-box">
                 {searchData.map((item, key) => (
-                  <p key={key}>{item}</p>
-                  // <SearchItem item={item} key={key} />
+                  <SearchItem item={item} key={key} />
                 ))}
               </div>
             )}
