@@ -1,0 +1,17 @@
+.user {
+  width: 15rem;
+  /* background-color: rgba(28, 30, 34, 0.25); */
+  border: 1px solid rgba(28, 30, 34, 0.25);
+  border-radius: 5px;
+}
+
+.user-image {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.user-image img {
+  width: 100%;
+}
