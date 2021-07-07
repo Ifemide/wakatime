@@ -14,9 +14,6 @@ const User = ({
   },
   match,
 }) => {
-  console.log(user)
-  console.log(running_total)
-
   useEffect(() => {
     const fetchUserDetails = async () => {
       const res = await axios.get(
@@ -33,14 +30,11 @@ const User = ({
         //   },
         // },
       )
-      console.log(res)
     }
     fetchUserDetails()
   }, [])
 
   const returnToIndex = () => history.push('/')
-
-  console.log(btoa('ae45a3c0-0b0c-46bb-8a01-53144d6a282a'))
 
   const positionize = (rank) => {
     let str = rank.toString()
@@ -60,7 +54,6 @@ const User = ({
         position = str + 'th'
     }
     return position
-    // console.log(lastLetter)
   }
 
   return (
